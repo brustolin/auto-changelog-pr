@@ -28,6 +28,9 @@ on:
   pull_request:
     types: [opened, synchronize, edited]
 
+permissions:
+  contents: write # The workflow needs to write back to the branch
+
 jobs:
   update-changelog:
     runs-on: ubuntu-latest
@@ -37,10 +40,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Auto Changelog PR
-        uses: your-username/auto-changelog-pr@v1
+        uses: brustolin/auto-changelog-pr@v1
         with:
           changelog-file: "CHANGELOG.md"
           fail-on-needs-update: "true"
+          auto-commit: "true"
 ```
 
 ---
@@ -48,8 +52,9 @@ jobs:
 ## ⚙️ Inputs
 | Name               | Description                                                       | Required | Default         |
 |--------------------|-------------------------------------------------------------------|----------|-----------------|
-| `changelog-file`  | The path to the changelog file.                                  | ✅ Yes   | `CHANGELOG.md`  |
-| `fail-on-needs-update` | If "true", the action **fails** if `<#PR>` is not found. | ✅ Yes   | "true"        |
+| `changelog-file`  | The path to the changelog file. | ✅ Yes | `CHANGELOG.md`  |
+| `fail-on-needs-update` | If "true", the action **fails** if `<#PR>` is not found. | ✅ Yes | "true" |
+| `auto-commit` | Automatically commit the changes back to the branch | ✅ Yes | "true" |
 
 ---
 
