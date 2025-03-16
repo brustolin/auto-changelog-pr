@@ -28,6 +28,9 @@ on:
   pull_request:
     types: [opened, synchronize, edited]
 
+permissions:
+  contents: write # The workflow needs to write back to the branch
+
 jobs:
   update-changelog:
     runs-on: ubuntu-latest
