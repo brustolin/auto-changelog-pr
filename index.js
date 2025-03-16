@@ -75,7 +75,7 @@ function updateChangelog(filePath, prNumber) {
 
 async function commit() {
     const headRef = github.context.payload.pull_request?.head.ref;
-    await exec('bash', [path.join(__dirname, './commit.sh', headRef)]);
+    await exec('bash', [path.join(__dirname, "./commit.sh", ), headRef]);
 }
 
 function exec(cmd, args = []) {
