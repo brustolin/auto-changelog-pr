@@ -26,7 +26,7 @@ name: Update Changelog
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, edited]
 
 jobs:
   update-changelog:
@@ -64,8 +64,8 @@ jobs:
 
 | Condition                                   | Result         |
 |--------------------------------------------|---------------|
-| `<#PR>` placeholder exists                | ✅ **Replaced** with PR number (`#123`) |
-| PR number (`#123`) is **already present** | ✅ **No update** needed |
+| `<#PR>` placeholder exists                | ✅ **Replaced** with PR number (`#124`) |
+| PR number (`#124`) is **already present** | ✅ **No update** needed |
 | No `<#PR>` and PR number is missing       | ⚠️ **Fails if `fail-on-needs-update: true`** |
 
 ---
@@ -76,14 +76,14 @@ jobs:
 **Before (`CHANGELOG.md`)**:
 ```
 ## [1.2.3] - 2025-03-16
-- Added new feature XYZ (#456)
+- Added new feature XYZ (#123)
 - Fixed issue with login (<#PR>)
 ```
 **After (`CHANGELOG.md`)**:
 ```
 ## [1.2.3] - 2025-03-16
-- Added new feature XYZ (#456)
-- Fixed issue with login (#123)
+- Added new feature XYZ (#123)
+- Fixed issue with login (#124)
 ```
 ➡️ **Output: `did-update = true`**  
 
@@ -93,8 +93,8 @@ jobs:
 **Before (`CHANGELOG.md`)**:
 ```
 ## [1.2.3] - 2025-03-16
-- Added new feature XYZ (#456)
-- Fixed issue with login (#123)
+- Added new feature XYZ (#123)
+- Fixed issue with login (#124)
 ```
 ➡️ **No changes needed**  
 ➡️ **Output: `did-update = false`**  
@@ -105,7 +105,7 @@ jobs:
 **Before (`CHANGELOG.md`)**:
 ```
 ## [1.2.3] - 2025-03-16
-- Added new feature XYZ (#456)
+- Added new feature XYZ (#123)
 - Fixed issue with login
 ```
 ➡️ **Fails the action if `fail-on-needs-update: "true"`**  
@@ -117,30 +117,16 @@ jobs:
 1. Extracts the **Pull Request Number** using the GitHub Actions Toolkit.
 2. Reads the **changelog file** specified in `changelog-file`.
 3. Checks for:
-   - `<#PR>` → **Replaces with PR number (`#123`)**.
-   - `#123` already exists → **No update**.
+   - `<#PR>` → **Replaces with PR number (`#124`)**.
+   - `#124` already exists → **No update**.
    - Neither exist → **Fails if `fail-on-needs-update` is `true`**.
 4. Saves the updated file.
 
 ---
 
-## 🚀 Development & Contributions
-### 🛠 Running Locally
-1. Clone the repo:
-   ```sh
-   git clone https://github.com/your-username/auto-changelog-pr.git
-   ```
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Run manually:
-   ```sh
-   node index.js CHANGELOG.md 123
-   ```
    
-### 💡 Contributing
-- Found a bug? Open an [issue](https://github.com/your-username/auto-changelog-pr/issues).
+## 💡 Contributing
+- Found a bug? Open an [issue](https://github.com/brustolin/auto-changelog-pr/issues).
 - Want to improve it? Submit a **Pull Request**.
 
 ---
