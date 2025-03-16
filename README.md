@@ -105,7 +105,7 @@ jobs:
 **Before (`CHANGELOG.md`)**:
 ```
 ## [1.2.3] - 2025-03-16
-- Added new feature XYZ (#456)
+- Added new feature XYZ (#123)
 - Fixed issue with login
 ```
 ➡️ **Fails the action if `fail-on-needs-update: "true"`**  
