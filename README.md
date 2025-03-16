@@ -41,6 +41,7 @@ jobs:
         with:
           changelog-file: "CHANGELOG.md"
           fail-on-needs-update: "true"
+          auto-commit: "true"
 ```
 
 ---
@@ -48,8 +49,9 @@ jobs:
 ## ⚙️ Inputs
 | Name               | Description                                                       | Required | Default         |
 |--------------------|-------------------------------------------------------------------|----------|-----------------|
-| `changelog-file`  | The path to the changelog file.                                  | ✅ Yes   | `CHANGELOG.md`  |
-| `fail-on-needs-update` | If "true", the action **fails** if `<#PR>` is not found. | ✅ Yes   | "true"        |
+| `changelog-file`  | The path to the changelog file. | ✅ Yes | `CHANGELOG.md`  |
+| `fail-on-needs-update` | If "true", the action **fails** if `<#PR>` is not found. | ✅ Yes | "true" |
+| `auto-commit` | Automatically commit the changes back to the branch | ✅ Yes | "true" |
 
 ---
 
