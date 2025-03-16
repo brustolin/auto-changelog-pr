@@ -1,0 +1,23 @@
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update changelog with PR
+        id: acPR
+        uses: ./
+
+      - name: Push on change
+        if: steps.acPR.outputs.did-update == 'true'
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Update changelog"
+          git push
