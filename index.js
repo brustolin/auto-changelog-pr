@@ -79,16 +79,18 @@ async function commit() {
 }
 
 function exec(cmd, args = []) {
-    const app = spawn(cmd, args, { stdio: 'inherit' });
-    app.on('close', code => {
-        if (code !== 0) {
-            err = new Error(`Invalid status code: ${code}`);
-            err.code = code;
-            return reject(err);
-        };
-        return resolve(code);
+    return new Promise((resolve, reject) => {
+        const app = spawn(cmd, args, { stdio: 'inherit' });
+        app.on('close', code => {
+            if (code !== 0) {
+                err = new Error(`Invalid status code: ${code}`);
+                err.code = code;
+                return reject(err);
+            };
+            return resolve(code);
+        });
+        app.on('error', reject);
     });
-    app.on('error', reject);
 }
 
 main()
