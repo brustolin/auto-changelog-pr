@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Auto Changelog PR
-        uses: your-username/auto-changelog-pr@v1
+        uses: brustolin/auto-changelog-pr@v1
         with:
           changelog-file: "CHANGELOG.md"
           fail-on-needs-update: "true"
