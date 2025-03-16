@@ -6,4 +6,4 @@
 
 ## Chores
 
-- Update README.md (<#PR>)
+- Update README.md (#2)
