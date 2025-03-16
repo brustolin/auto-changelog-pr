@@ -1,0 +1,23 @@
+{
+  "name": "auto-changelog-pr",
+  "version": "1.0.0",
+  "description": "Updates the Changelog with the current PR number",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brustolin/auto-changelog-pr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brustolin/auto-changelog-pr/issues"
+  },
+  "homepage": "https://github.com/brustolin/auto-changelog-pr#readme",
+  "dependencies": {
+    "@actions/github": "^6.0.0"
+  }
+}
