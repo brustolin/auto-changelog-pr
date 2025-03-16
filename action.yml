@@ -9,6 +9,10 @@ inputs:
     description: 'Fails the action if there is no placeholder and the PR number is not present'
     required: true
     default: 'true'
+  auto-commit: 
+    description: 'Automatically commit the changes'
+    required: true
+    default: 'true'
 outputs:
   did-update:
     description: 'Indicates if the changelog was updated with the PR number'
